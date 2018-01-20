@@ -1,5 +1,6 @@
 #!/bin/bash
 #authot: www.linuxhub.org
+# wget -q -O - https://raw.githubusercontent.com/linuxhub/tools/master/ops/MegaCli/install.MegaCli.sh | bash  #复制粘贴自动安装
 
 MegaRpm=MegaCli-8.07.14-1.noarch.rpm
 wget https://raw.githubusercontent.com/linuxhub/tools/master/ops/MegaCli/MegaCli-8.07.14-1.noarch.rpm -O $MegaRpm
