@@ -48,17 +48,17 @@ echo "/usr/local/falcon-agent/control start" >> /etc/rc.local
 # 2.Agent程序异常自愈
 is_crond=`rpm -qa | grep crontabs | wc -l`
 if [ $is_crond == 0 ];then
-        yum -y install crontabs
-        service crond start
-        chkconfig crond on
+    yum -y install crontabs
+    service crond start
+    chkconfig crond on
 else
-        service crond start
-        chkconfig crond on
-if
+    service crond start
+    chkconfig crond on
+fi
 
 cron_file="/var/spool/cron/root"
 if [ ! -f "$cron_file" ];then
-        touch $cron_file
+    touch $cron_file
 fi
 
 mkdir -p /data/app
