@@ -1,22 +1,22 @@
 #!/bin/bash
 # Author:   zeping lai
 # website:  https://www.linuxhub.org
-# Description: open-falconÔËÎ¬¼à¿ØAgent¿Í»§¶Ë
+# Description: open-falconè¿ç»´ç›‘æ§Agentå®¢æˆ·ç«¯
 
 # wget https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/INSTALL.sh
 # vim INSTALL.sh
 # bash INSTALL.sh
 
 
-#×Ô¶¨ÒåÖ÷»úÃû
+#è‡ªå®šä¹‰ä¸»æœºå
 host_name=""
 
-#·şÎñ¶ËÅäÖÃ
+#æœåŠ¡å™¨IPåœ°å€
 falcon_hbs_ip=""
 falcon_transfer_ip=""
 
 
-# 1.Agent×Ô¶¯²¿Êğ
+# 1.Agentè‡ªåŠ¨éƒ¨ç½²
 wget -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
 tar -zxf /tmp/falcon-agent-5.1.1.tar.gz -C /usr/local/
 mv /usr/local/falcon-agent-5.1.1 /usr/local/falcon-agent
@@ -45,7 +45,7 @@ chmod +x /usr/local/falcon-agent/cfg.json
 echo "/usr/local/falcon-agent/control start" >> /etc/rc.local
 
 
-# 2.Agent³ÌĞòÒì³£×ÔÓú»Ö¸´½Å±¾
+# 2.Agentç¨‹åºå¼‚å¸¸è‡ªæ„ˆ
 is_crond=`rpm -qa | grep crontabs | wc -l`
 if [ $is_crond == 0 ];then
         yum -y install crontabs
