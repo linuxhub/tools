@@ -16,19 +16,12 @@ falcon_hbs_ip=""
 falcon_transfer_ip=""
 
 
-<<<<<<< HEAD
-
 # 1.Agent自动部署
 wget -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
 tar -zxf /tmp/falcon-agent-5.1.1.tar.gz -C /usr/local/
 mv /usr/local/falcon-agent-5.1.1 /usr/local/falcon-agent
 rm /tmp/falcon-agent-5.1.1.tar.gz
-=======
-wget -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
-tar -zxf /tmp/falcon-agent-5.1.0.tar.gz -C /usr/local/
-mv /usr/local/falcon-agent-5.1.0 /usr/local/falcon-agent
-rm /tmp/falcon-agent-5.1.0.tar.gz
->>>>>>> e7ee905b285896c642d5c501118c3792a045d157
+
 wget -O /usr/local/falcon-agent/cfg.json https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/cfg.json
 
 
@@ -51,8 +44,6 @@ chmod +x /usr/local/falcon-agent/cfg.json
 /usr/local/falcon-agent/control start
 echo "/usr/local/falcon-agent/control start" >> /etc/rc.local
 
-<<<<<<< HEAD
-
 
 # 2.Agent程序异常自愈恢复脚本
 is_crond=`rpm -qa | grep crontabs | wc -l`
@@ -74,22 +65,3 @@ mkdir -p /data/app
 wget -O /data/app/check.falcon.agent.sh https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/check.falcon.agent.sh
 chmod +x /data/app/check.falcon.agent.sh
 echo "*/5 * * * * /bin/bash /data/app/check.falcon.agent.sh" >> $cron_file 
-=======
-#监控脚本部分
-mkdir -p /data/app
-
-is_crond=`rpm -qa | grep crontabs | wc -l`
-if [ $is_crond == 0 ];then
-	yum -y install crontabs
-if
-service crond start
-chkconfig crond on
-
-wget -O /data/app/check.falcon.agent.sh https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/check.falcon.agent.sh
-chmod +x /data/app/check.falcon.agent.sh
-echo "*/5 * * * * /bin/bash /data/app/check.falcon.agent.sh" >> /var/spool/cron/root 
-
-
-
-
->>>>>>> e7ee905b285896c642d5c501118c3792a045d157
