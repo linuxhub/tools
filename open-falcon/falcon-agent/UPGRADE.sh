@@ -21,13 +21,15 @@ fi
 
 
 wget --no-check-certificate -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
-tar -zxf /tmp/falcon-agent-5.1.1.tar.gz -C /usr/local/
-
-mv /usr/local/falcon-agent /tmp/falcon-agent
-
 
 /usr/local/falcon-agent/control stop
+old_pid=`ps --no-headers -o pid -C falcon-agent`
+if [ $old_pid ];then
+    kill -9 $old_pid
+fi
+mv /usr/local/falcon-agent /tmp/falcon-agent
 
+tar -zxf /tmp/falcon-agent-5.1.1.tar.gz -C /usr/local/
 mv /usr/local/falcon-agent-5.1.1 /usr/local/falcon-agent
 cp /tmp/falcon-agent/cfg.json  /usr/local/falcon-agent/cfg.json
 
