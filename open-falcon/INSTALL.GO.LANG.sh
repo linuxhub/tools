@@ -1,12 +1,12 @@
 #!/bin/bash
 #author: zepinglai
 #安装GO语言环境
-#脚本自动安装 wget -q -O - https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/INSTALL.GO.LANG | bash
+#脚本自动安装 wget --no-check-certificate -q -O - https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/INSTALL.GO.LANG.sh | bash
 
 mkdir -p /data/down
 mkdir -p /data/app/golang
 
-wget -O /data/down/go1.10.2.linux-amd64.tar.gz https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+wget --no-check-certificate  -O /data/down/go1.10.2.linux-amd64.tar.gz https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 tar -C /usr/local -xzf /data/down/go1.10.2.linux-amd64.tar.gz
 
 echo "export GOROOT=/usr/local/go" >> /etc/profile
