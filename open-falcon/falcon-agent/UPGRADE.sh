@@ -27,7 +27,7 @@ cp /tmp/falcon-agent/cfg.json  /usr/local/falcon-agent/cfg.json
 
 version_new=`/usr/local/falcon-agent/falcon-agent -v`
 if [ "$version_new" == "5.1.1" ];then
-        echo "版本升级成功: falcon-agent 5.1.1"
+        echo "版本升级成功: falcon-agent $version_new"
         rm -rf /tmp/falcon-agent-5.1.1.tar.gz
         rm -rf /tmp/falcon-agent
 else
