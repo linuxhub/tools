@@ -3,7 +3,7 @@
 # website:  https://www.linuxhub.org
 # Description: open-falcon运维监控 mysql数据库监控
 
-# 脚本自动安装 wget -q -O - https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/mymon/INSTALL.sh  | bash
+# 脚本自动安装 wget --no-check-certificate -q -O - https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/mymon/INSTALL.sh  | bash
 
 
 if [ ! -f "/usr/local/falcon-agent/cfg.json" ];then

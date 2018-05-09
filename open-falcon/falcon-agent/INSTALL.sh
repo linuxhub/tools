@@ -3,7 +3,7 @@
 # website:  https://www.linuxhub.org
 # Description: open-falcon运维监控Agent客户端
 
-# wget https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/INSTALL.sh
+# wget --no-check-certificate https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/INSTALL.sh
 # vim INSTALL.sh
 # bash INSTALL.sh
 
@@ -17,12 +17,12 @@ falcon_transfer_ip=""
 
 
 # 1.Agent自动部署
-wget -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
+wget --no-check-certificate -O /tmp/falcon-agent-5.1.1.tar.gz https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/falcon-agent-5.1.1.tar.gz
 tar -zxf /tmp/falcon-agent-5.1.1.tar.gz -C /usr/local/
 mv /usr/local/falcon-agent-5.1.1 /usr/local/falcon-agent
 rm /tmp/falcon-agent-5.1.1.tar.gz
 
-wget -O /usr/local/falcon-agent/cfg.json https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/cfg.json
+wget --no-check-certificate -O /usr/local/falcon-agent/cfg.json https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/cfg.json
 
 
 if [ "$host_name" == "" ];then
@@ -62,6 +62,6 @@ if [ ! -f "$cron_file" ];then
 fi
 
 mkdir -p /data/app
-wget -O /data/app/check.falcon.agent.sh https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/check.falcon.agent.sh
+wget --no-check-certificate -O /data/app/check.falcon.agent.sh https://raw.githubusercontent.com/linuxhub/tools/master/open-falcon/falcon-agent/check.falcon.agent.sh
 chmod +x /data/app/check.falcon.agent.sh
 echo "*/5 * * * * /bin/bash /data/app/check.falcon.agent.sh" >> $cron_file 
