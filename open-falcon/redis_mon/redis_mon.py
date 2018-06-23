@@ -27,7 +27,7 @@ class RedisMonitor():
         :return: {'stat_code': 1, 'role_code': 1, 'connected_clients': 9}
         '''
 
-        data = {}
+        data = {'stat_code': 0, 'role_code': 0, 'connected_clients': 0}
 
         try:
             pool = redis.ConnectionPool(host=self.host, port=self.port, password=self.password)
